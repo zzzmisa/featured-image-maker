@@ -1,0 +1,38 @@
+﻿.html2canvas-container { width: 3000px !important; height: 3000px !important; }
+
+#screenshot-area {
+  width: 780px;
+  height: 520px;
+
+  /* 中央寄せ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* フォント */
+  font-family: 'Lato', sans-serif;	
+  font-size: 60px;
+  color: white;
+}
+
+/* アイコン */
+#screenshot-area .fa {
+  font-size: 70px;
+}
+
+#screenshot-area .fas {
+  font-size: 70px;
+}
+
+#screenshot-area .fab {
+  font-size: 70px;
+}
+
+#screenshot-area .far {
+  font-size: 70px;
+}
+
+#screenshot-area .devicons {
+  font-size: 90px;
+}
