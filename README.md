@@ -5,7 +5,7 @@
 ツールはすべてブラウザ上で動きます。  
 テクノロジー系のアイコンが充実しているので技術ブログにもおすすめです！
 
- [デモはこちら](http://eye-catch-maker.zzzmisa.com)
+ [デモはこちら](http://featured-image-maker.zzzmisa.com)
 
 ## 対応アイコン
 - [Font Awesome Free v5.6.3](https://fontawesome.com/icons)
