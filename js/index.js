@@ -52,16 +52,12 @@ var app = new Vue({
   },
   methods: {
     capture: function () {
-      html2canvas(document.querySelector('#screenshot-area'), {
-        onrendered: function(canvas) {
-          var dataUrl = canvas.toDataURL("image/png")   // PNG形式
-          var event = document.createEvent("MouseEvents")
-          event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
-          var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
-          a.href = dataUrl
-          a.download = "output"
-          a.dispatchEvent(event)
-        }
+      html2canvas(document.querySelector('#screenshot-area'), {logging: false}).then(function(canvas) {
+        var dataUrl = canvas.toDataURL("image/png");
+        var a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = 'output';
+        a.click();
       })
     },
     showSample: function (item) {
