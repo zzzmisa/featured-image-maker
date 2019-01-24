@@ -1,17 +1,21 @@
 ﻿.html2canvas-container { width: 3000px !important; height: 3000px !important; }
 
 #screenshot-area {
-  width: 780px;
-  height: 520px;
 
-  /* 中央寄せ */
+  width: 780px;
+  height: 520px; /* 画像の比率は3:2 */
+
+  /* 自身の中央寄せ */
+  margin: 0px auto;
+
+  /* コンテンツの中央寄せ */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  /* フォント */
-  font-family: 'Lato', sans-serif;	
+  /* コンテンツのフォント */
+  font-family: 'Lato', sans-serif;
   font-size: 60px;
   color: white;
 }
