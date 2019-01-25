@@ -1,9 +1,11 @@
 import icons from './icons.js';
+import webgradients from './webgradients.js';
 
 var app = new Vue({
   el: '#app',
   data: {
-    isActive: false,
+    iconsModalFlg: false,
+    gradientsModalFlg: false,
     title: 'Eye Catch Maker',
     title_en: 'Featured image maker',
     icon: "fa fa-eye",
@@ -28,6 +30,7 @@ var app = new Vue({
         color: "to left top, #20E2D7, #F9FEA5"
       }],
     keyword: "",
+    webgradients: webgradients
   },
   computed: {
     linearGradient: function () {
@@ -74,6 +77,14 @@ var app = new Vue({
     },
     selectIcon: function (selectedIcon) {
       this.icon = selectedIcon
+    },
+    selectGradient: function (Gradient) {
+      this.color = Gradient
+    },
+    linearGradientForRoop: function (color) {
+      return {
+        "background": "linear-gradient(" +color+ ")"
+      }
     }
   }
 })

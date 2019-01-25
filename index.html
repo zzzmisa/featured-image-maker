@@ -16,6 +16,7 @@
     <link href='css/style.css' rel='stylesheet'>
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <!-- Fuse.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js"></script>
     <!-- Site Info -->
@@ -77,22 +78,22 @@ gtag('config', 'UA-88635038-5');
               <label class="label">アイコン</label>
               <p class="control">
               <div class="field has-addons">
-                <p class="control">
+                <p class="control is-expanded">
                 <input class="input"  id="icon_input" type="text" v-model="icon">
                 </p>
                 <p class="control">
-                <a class="button is-link" v-on:click='isActive=true'>検索</a>
+                <a class="button is-link" v-on:click='iconsModalFlg=true'>選択</a>
                 </p>
               </div>
               </p>
             </div>
-            <!-- Modal ... -->
-            <div class="modal" v-bind:class='{"is-active":isActive}'>
+            <!-- iconsModal ... -->
+            <div class="modal" v-bind:class='{"is-active":iconsModalFlg}'>
               <div class="modal-background"></div>
               <div class="modal-card">
                 <header class="modal-card-head">
-                  <p class="modal-card-title">アイコン検索</p>
-                  <button class="delete" aria-label="close" v-on:click='isActive=false'></button>
+                  <p class="modal-card-title">アイコン選択</p>
+                  <button class="delete" aria-label="close" v-on:click='iconsModalFlg=false'></button>
                 </header>
                 <section class="modal-card-body">
                   <div class="field">
@@ -102,10 +103,10 @@ gtag('config', 'UA-88635038-5');
                   </div>
                   <div class="columns is-multiline has-text-centered">
                     <template v-for="searchedIcon in searchedIcons">
-                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('solid') !== -1"><a class="box" v-on:click="selectIcon('fas fa-' + searchedIcon.name); isActive=false"><i class="is-size-2" v-bind:class="'fas fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
-                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('regular') !== -1"><a class="box" v-on:click="selectIcon('far fa-' + searchedIcon.name); isActive=false"><i class="is-size-2" v-bind:class="'far fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
-                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('light') !== -1"><a class="box" v-on:click="selectIcon('fal fa-' + searchedIcon.name); isActive=false"><i class="is-size-2" v-bind:class="'fal fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
-                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('brands') !== -1"><a class="box" v-on:click="selectIcon('fab fa-' + searchedIcon.name); isActive=false"><i class="is-size-2" v-bind:class="'fab fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
+                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('solid') !== -1"><a class="box" v-on:click="selectIcon('fas fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2" v-bind:class="'fas fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
+                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('regular') !== -1"><a class="box" v-on:click="selectIcon('far fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2" v-bind:class="'far fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
+                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('light') !== -1"><a class="box" v-on:click="selectIcon('fal fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2" v-bind:class="'fal fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
+                      <div class="column is-3" v-if="searchedIcon.styles.indexOf('brands') !== -1"><a class="box" v-on:click="selectIcon('fab fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2" v-bind:class="'fab fa-' + searchedIcon.name"></i><br><span v-text="searchedIcon.name"><span></a></div>
                     </template>
                   </div>
                 </section>
@@ -113,15 +114,44 @@ gtag('config', 'UA-88635038-5');
                 </footer>
               </div>
             </div>
-            <!-- ...Modal -->
+            <!-- ...iconsModal -->
             <div class="field">
               <label class="label">タイトル</label>
               <input class="input" id="text_input" type="text" v-model="title">
             </div>
             <div class="field">
               <label class="label">背景グラデーション</label>
-              <input class="input" id="color_input" type="text" v-model="color">
+              <p class="control">
+              <div class="field has-addons">
+                <p class="control is-expanded">
+                <input class="input" id="color_input" type="text" v-model="color">
+                </p>
+                <p class="control">
+                <a class="button is-link" v-on:click='gradientsModalFlg=true'>選択</a>
+                </p>
+              </div>
+              </p>
             </div>
+            <!-- gradientsModal ... -->
+            <div class="modal" v-bind:class='{"is-active":gradientsModalFlg}'>
+              <div class="modal-background"></div>
+              <div class="modal-card">
+                <header class="modal-card-head">
+                  <p class="modal-card-title">背景グラデーション選択</p>
+                  <button class="delete" aria-label="close" v-on:click='gradientsModalFlg=false'></button>
+                </header>
+                <section class="modal-card-body">
+                  <div class="columns is-multiline has-text-centered">
+                    <template v-for="webgradient in webgradients">
+                      <div class="column is-4"><a class="box" v-on:click="selectGradient(webgradient); gradientsModalFlg=false" v-bind:style="linearGradientForRoop(webgradient)"><br><br><br><br><br></a></div>
+                    </template>
+                  </div>
+                </section>
+                <footer class="modal-card-foot">
+                </footer>
+              </div>
+            </div>
+            <!-- ...gradientsModal -->
             <div class="field">
               <a class="button is-primary" id="download" v-on:click="capture">ダウンロード</a>
             </div>
