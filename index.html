@@ -153,7 +153,7 @@ gtag('config', 'UA-88635038-5');
             </div>
             <!-- ...gradientsModal -->
             <div class="field">
-              <a class="button is-primary" id="download" v-on:click="capture">ダウンロード</a>
+              <a class="button is-primary" id="download" v-on:click="capture" v-bind:class='{"is-loading":loading}'>ダウンロード</a>
             </div>
           </div>
         </div>

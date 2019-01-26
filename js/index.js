@@ -30,7 +30,8 @@ var app = new Vue({
         color: "to left top, #20E2D7, #F9FEA5"
       }],
     keyword: "",
-    webgradients: webgradients
+    webgradients: webgradients,
+    loading: false,
   },
   computed: {
     linearGradient: function () {
@@ -55,13 +56,21 @@ var app = new Vue({
   },
   methods: {
     capture: function () {
-      html2canvas(document.querySelector('#screenshot-area'), {logging: false}).then(function(canvas) {
-        var dataUrl = canvas.toDataURL("image/png");
-        var a = document.createElement('a');
-        a.href = dataUrl;
-        a.download = 'output';
-        a.click();
-      })
+      if (this.loading) return;
+      this.loading = true;
+      let self = this
+      setTimeout(function(){
+        html2canvas(document.querySelector('#screenshot-area'), {
+          logging: false
+        }).then(function(canvas) {
+          var dataUrl = canvas.toDataURL("image/png");
+          var a = document.createElement('a');
+          a.href = dataUrl;
+          a.download = 'output';
+          a.click();
+          self.loading = false
+        })
+      }, 100);
     },
     showSample: function (item) {
       this.title = item.title
