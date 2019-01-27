@@ -32,8 +32,20 @@ var app = new Vue({
     keyword: "",
     webgradients: webgradients,
     loading: false,
+    zoomPercentage: 100
+  },
+  mounted () {
+    var w = document.getElementById('preview').clientWidth
+    if(w<780){
+      this.zoomPercentage = (w-40)/780*100
+    }
   },
   computed: {
+    previewWidth: function () {
+      return {
+        "zoom": this.zoomPercentage + "%"
+      }
+    },
     linearGradient: function () {
       return {
         "background": "linear-gradient(" +this.color+ ")"

@@ -58,9 +58,9 @@ gtag('config', 'UA-88635038-5');
     <section class="section has-background-light" id="app">
       <div class="columns">
         <div class="column is-8">
-          <div class="box">
+          <div class="box" id="preview">
             <div style="overflow: auto;">
-              <div id="screenshot-area" v-bind:style="linearGradient">
+              <div id="screenshot-area" v-bind:style="[linearGradient,previewWidth]">
                 <div id="append_area" v-cloak><i v-bind:class="icon"></i><br><span v-text="title"><span></div>
               </div>
             </div>
