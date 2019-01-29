@@ -1,17 +1,18 @@
-# Eye Catch Maker (Featured-Image-Maker)
+# Featured Image Maker
 
-「Eye Catch Maker（アイキャッチメーカー）」は、アイキャッチ画像を簡単に作成できるジェネレーターです。  
-アイコンと背景グラデーションを組み合わせて、シンプルなアイキャッチ画像が作れます。  
-ツールはすべてブラウザ上で動きます。  
-テクノロジー系のアイコンが充実しているので技術ブログにもおすすめです！
+Featured image maker is a generator for creating featured images. You can make simple featured images by combining an icon and a background gradation. All you need is a browser for this tool to work. This tool is great for making profile banners, logos, highlight covers and featured images. And it is best for technology blogs because it supports many technology icons!
 
- [デモはこちら](http://featured-image-maker.zzzmisa.com)
+[Check out the demo](http://featured-image-maker.zzzmisa.com/en/)
 
-## 対応アイコン
+## Supported icons
 - [Font Awesome Free v5.6.3](https://fontawesome.com/icons)
 - [Font Awesome Free v4.7.0](https://fontawesome.com/v4.7.0/icons/)
 - [Devicons 1.8.0](http://vorillaz.github.io/devicons/#/dafont)
 
-## ライセンス
-- 作成したアイキャッチ画像：各アイコンのライセンスに従ってお使いください。
-- ソースコード：[MIT](https://github.com/zzzmisa/featured-image-maker/blob/master/LICENSE)
+Icon Picker is supported only for Font Awesome Free v5.6.3.
+
+## Licence
+- Featured images made by this tool：Refer to each icon's licenses.
+    - [Font Awesome Free License (CC BY 4.0 License)](https://fontawesome.com/license/free)
+    - [Devicons License (MIT)](https://github.com/vorillaz/devicons)
+- Source code：[MIT](https://github.com/zzzmisa/eye-catch-maker/blob/master/LICENSE)
