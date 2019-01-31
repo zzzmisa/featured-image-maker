@@ -19,6 +19,8 @@
   font-size: 60px;
   color: white;
 
+  /* 改行可能 */
+  white-space: pre-line;
 }
 
 /* アイコン */
