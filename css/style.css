@@ -1,6 +1,8 @@
 ﻿.html2canvas-container { width: 3000px !important; height: 3000px !important; }
+.html2canvas_0_5_0-container { width: 3000px !important; height: 3000px !important; }
 
-#screenshot-area {
+
+.screenshot-area {
 
   width: 780px;
   height: 520px; /* 画像の比率は3:2 */
@@ -24,22 +26,24 @@
 }
 
 /* アイコン */
-#screenshot-area .fa {
+.screenshot-area .fa {
   font-size: 70px;
 }
 
-#screenshot-area .fas {
+.screenshot-area .fas {
   font-size: 70px;
 }
 
-#screenshot-area .fab {
+.screenshot-area .fab {
   font-size: 70px;
 }
 
-#screenshot-area .far {
+.screenshot-area .far {
   font-size: 70px;
 }
 
-#screenshot-area .devicons {
+.screenshot-area .devicons {
   font-size: 90px;
 }
+
+

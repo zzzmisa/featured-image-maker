@@ -73,18 +73,34 @@ var app = new Vue({
       if (this.loading) return;
       this.loading = true;
       let self = this
-      setTimeout(function(){
-        html2canvas(document.querySelector('#screenshot-area'), {
-          logging: false
-        }).then(function(canvas) {
-          var dataUrl = canvas.toDataURL("image/png");
-          var a = document.createElement('a');
-          a.href = dataUrl;
-          a.download = 'output';
-          a.click();
-          self.loading = false
-        })
-      }, 100);
+
+      if(isMobile.apple.device){
+        html2canvas_0_5_0(document.querySelector('#screenshot-area'), {
+          onrendered: function(canvas) {
+            this.zoomPercentage=100
+            var dataUrl = canvas.toDataURL("image/png");
+            var a = document.createElement('a');
+            a.href = dataUrl;
+            a.download = 'output';
+            a.click();
+            self.loading = false
+          }
+        });
+      }else{
+        setTimeout(function(){
+          html2canvas(document.querySelector('#screenshot-area'), {
+            logging: false
+          }).then(function(canvas) {
+            var dataUrl = canvas.toDataURL("image/png");
+            var a = document.createElement('a');
+            a.href = dataUrl;
+            a.download = 'output';
+            a.click();
+            self.loading = false
+          })
+        }, 100);
+
+      }
     },
     showSample: function (item) {
       this.title = item.title
