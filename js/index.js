@@ -43,7 +43,9 @@ var app = new Vue({
   computed: {
     previewWidth: function () {
       return {
-        "zoom": this.zoomPercentage + "%"
+        "zoom": this.zoomPercentage + "%",
+        /* iOSでもサイズが変わらないようにBulmaの指定を打ち消す */
+        "-webkit-text-size-adjust": "auto"
       }
     },
     linearGradient: function () {
