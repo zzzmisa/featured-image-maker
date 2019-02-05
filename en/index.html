@@ -19,6 +19,8 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <!-- Fuse.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js"></script>
+    <!-- isMobile -->
+    <script src="https://cdn.jsdelivr.net/npm/ismobilejs@0.5.1/dist/isMobile.min.js"></script>
     <!-- Site Info -->
     <title>Featured Image Maker</title>
     <link rel="icon" href="../favicon.ico">
@@ -58,8 +60,13 @@ gtag('config', 'UA-88635038-5');
         <div class="column is-8">
           <div class="box" id="preview">
             <div style="overflow: auto;">
-              <div id="screenshot-area" v-bind:style="[linearGradient,previewWidth]">
+              <div class="screenshot-area" v-bind:style="[linearGradient,previewWidth]">
                 <div id="append_area" v-cloak><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
+              </div>
+              <div style="position: absolute; opacity: 0.0;">
+                <div id="screenshot-area" class="screenshot-area" v-bind:style="[linearGradient]">
+                  <div v-cloak><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -224,6 +231,7 @@ gtag('config', 'UA-88635038-5');
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     <script src="../js/html2canvas.js"></script>
+    <script src="../js/html2canvas_0_5_0.js"></script>
     <script src="../js/index.js" type="module"></script>
   </body>
 </html>
