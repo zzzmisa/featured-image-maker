@@ -108,17 +108,11 @@ var app = new Vue({
       this.icon = item.icon
       this.color = item.color
     },
-    openModal: function () {
-      this.title = item.title
-      this.title_en = item.title_en
-      this.icon = item.icon
-      this.color = item.color
-    },
     selectIcon: function (selectedIcon) {
       this.icon = selectedIcon
     },
-    selectGradient: function (Gradient) {
-      this.color = Gradient
+    selectGradient: function (selectedGradient) {
+      this.color = selectedGradient
     },
     linearGradientForRoop: function (color) {
       return {
