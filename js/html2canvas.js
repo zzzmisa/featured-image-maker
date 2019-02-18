@@ -1,6 +1,10 @@
 /*!
+ * This file is derived from html2canvas.
+ * Pull request #1649 is merged.
+ * #1649 Fix CSS content property for Safari <https://github.com/niklasvh/html2canvas/pull/1649>
+ *
  * html2canvas 1.0.0-alpha.12 <https://html2canvas.hertzen.com>
- * Copyright (c) 2018 Niklas von Hertzen <https://hertzen.com>
+ * Copyright (c) 2019 Niklas von Hertzen <https://hertzen.com>
  * Released under MIT License
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -2256,7 +2260,7 @@ var createCJKCounter = function createCJKCounter(value, numbers, multipliers, ne
 var CHINESE_INFORMAL_MULTIPLIERS = '十百千萬';
 var CHINESE_FORMAL_MULTIPLIERS = '拾佰仟萬';
 var JAPANESE_NEGATIVE = 'マイナス';
-var KOREAN_NEGATIVE = '마이너스 ';
+var KOREAN_NEGATIVE = '마이너스';
 
 var createCounterText = exports.createCounterText = function createCounterText(value, type, appendSuffix) {
     var defaultSuffix = appendSuffix ? '. ' : '';
@@ -7227,6 +7231,8 @@ var addOtherToken = function addOtherToken(tokens, identifier) {
         case 'close-quote':
             tokens.push({ type: TOKEN_TYPE.CLOSEQUOTE });
             break;
+        default:
+            tokens.push({ type: TOKEN_TYPE.STRING, value: identifier });
     }
 };
 
