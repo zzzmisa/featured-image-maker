@@ -2,7 +2,9 @@
 
 Featured image maker is a generator of simple featured images. You can make simple featured images by combining an icon and background gradation. This tool is great for making featured images for blogs like WordPress, various header images, profile banners, logos, highlight covers, and so on. And it is the best for technology blogs because it supports many technology icons!
 
-[Check out the demo](http://featured-image-maker.zzzmisa.com/en/)
+[Check out the demo👀](http://featured-image-maker.zzzmisa.com/en/)
+
+![movie](./img/movie-en.gif)
 
 ## Supported icons
 - [Font Awesome Free v5.6.3](https://fontawesome.com/icons)

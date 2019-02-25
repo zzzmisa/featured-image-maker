@@ -5,7 +5,9 @@
 ワードプレスのようなブログ用のアイキャッチ画像の他、各種ヘッダー画像、プロフィールバナー、ロゴ、ハイライトカバーなどにどうぞ。  
 テクノロジー系のアイコンが充実しているので技術ブログにもおすすめです！
 
- [デモはこちら](http://featured-image-maker.zzzmisa.com)
+ [デモはこちら👀](http://featured-image-maker.zzzmisa.com)
+
+![movie](./img/movie.gif)
 
 ## 対応アイコン
 - [Font Awesome Free v5.6.3](https://fontawesome.com/icons)
