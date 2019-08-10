@@ -34,10 +34,10 @@ var app = new Vue({
     loading: false,
     zoomPercentage: 100
   },
-  mounted () {
+  mounted() {
     var w = document.getElementById('preview').clientWidth
-    if(w<780){
-      this.zoomPercentage = (w-40)/780*100
+    if (w < 780) {
+      this.zoomPercentage = (w - 40) / 780 * 100
     }
   },
   computed: {
@@ -50,19 +50,19 @@ var app = new Vue({
     },
     linearGradient: function () {
       return {
-        "background": "linear-gradient(" +this.color+ ")"
+        "background": "linear-gradient(" + this.color + ")"
       }
     },
     searchedIcons: function () {
       var options = {
         threshold: 0.3,
-        keys: ['name','term'],
+        keys: ['name', 'term'],
       }
       var fuse = new Fuse(icons, options)
       var result
-      if(!this.keyword){
+      if (!this.keyword) {
         result = icons;
-      }else{
+      } else {
         result = fuse.search(this.keyword);
       }
       return result
@@ -74,18 +74,18 @@ var app = new Vue({
       this.loading = true;
       let self = this
 
-        setTimeout(function(){
-          html2canvas(document.querySelector('#screenshot-area'), {
-            logging: false
-          }).then(function(canvas) {
-            var dataUrl = canvas.toDataURL("image/png");
-            var a = document.createElement('a');
-            a.href = dataUrl;
-            a.download = 'output';
-            a.click();
-            self.loading = false
-          })
-        }, 100);
+      setTimeout(function () {
+        html2canvas(document.querySelector('#screenshot-area'), {
+          logging: false
+        }).then(function (canvas) {
+          var dataUrl = canvas.toDataURL("image/png");
+          var a = document.createElement('a');
+          a.href = dataUrl;
+          a.download = 'output';
+          a.click();
+          self.loading = false
+        })
+      }, 100);
 
     },
     showSample: function (item) {
@@ -102,7 +102,7 @@ var app = new Vue({
     },
     linearGradientForRoop: function (color) {
       return {
-        "background": "linear-gradient(" +color+ ")"
+        "background": "linear-gradient(" + color + ")"
       }
     }
   }
