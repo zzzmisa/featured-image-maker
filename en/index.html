@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Bulma Version 0.7.2-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" rel="stylesheet">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -65,11 +65,11 @@
       <div class="column is-8">
         <div class="box" id="preview">
           <div style="overflow: auto;">
-            <div class="screenshot-area" v-bind:style="[linearGradient,previewWidth]">
+            <div class="screenshot-area" v-bind:style="[cssForScreenshotArea,cssForPreview]">
               <div id="append_area"><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
             </div>
             <div style="position: absolute; opacity: 0.0; left:-2000px;">
-              <div id="screenshot-area" class="screenshot-area" v-bind:style="[linearGradient]">
+              <div id="screenshot-area" class="screenshot-area" v-bind:style="[cssForScreenshotArea]">
                 <div><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
               </div>
             </div>
@@ -142,7 +142,7 @@
             <textarea class="input" v-model="title_en"></textarea>
           </div>
           <div class="field">
-            <label class="label">Background Gradation</label>
+            <label class="label">Background gradation</label>
             <p class="control">
               <div class="field has-addons">
                 <p class="control is-expanded">
@@ -159,7 +159,7 @@
             <div class="modal-background"></div>
             <div class="modal-card">
               <header class="modal-card-head">
-                <p class="modal-card-title">Pick a Background Gradation</p>
+                <p class="modal-card-title">Pick a Background gradation</p>
                 <button class="delete" aria-label="close" v-on:click='gradientsModalFlg=false'></button>
               </header>
               <section class="modal-card-body">
@@ -179,6 +179,27 @@
           <div class="field">
             <a class="button is-primary" v-on:click="capture" v-bind:class='{"is-loading":loading}'>Download</a>
           </div>
+          <hr>
+          <details>
+            <summary class="mb-4">Advanced settings</summary>
+            <div class="field">
+              <label class="label">Image size</label>
+              <div class="is-flex">
+                <div class="field">
+                  <p class="control">
+                    <input class="input" type="text" v-model="width">
+                  </p>
+                </div>
+                <div class="mx-3 is-size-5">x</div>
+                <div class="field">
+                  <p class="control">
+                    <input class="input" type="text" v-model="height">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </details>
         </div>
       </div>
     </div>
