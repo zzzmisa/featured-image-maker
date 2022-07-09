@@ -10,6 +10,8 @@ var app = new Vue({
     title_en: "Featured image maker",
     icon: "fa fa-eye",
     color: "to left top, #05FBFF, #1E00FF",
+    width: 780,
+    height: 520,
     items: [
       {
         title: "サンプル1",
@@ -37,20 +39,22 @@ var app = new Vue({
   },
   mounted() {
     var w = document.getElementById("preview").clientWidth;
-    if (w < 780) {
-      this.zoomPercentage = ((w - 40) / 780) * 100;
+    if (w < this.width) {
+      this.zoomPercentage = ((w - 40) / this.width) * 100;
     }
   },
   computed: {
-    previewWidth: function () {
+    cssForPreview: function () {
       return {
         zoom: this.zoomPercentage + "%",
         /* iOSでもサイズが変わらないようにBulmaの指定を打ち消す */
         "-webkit-text-size-adjust": "auto",
       };
     },
-    linearGradient: function () {
+    cssForScreenshotArea: function () {
       return {
+        width: this.width + "px",
+        height: this.height + "px",
         background: "linear-gradient(" + this.color + ")",
       };
     },

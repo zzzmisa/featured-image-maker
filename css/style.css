@@ -1,7 +1,4 @@
 ﻿.screenshot-area {
-  width: 780px;
-  height: 520px; /* 画像の比率は3:2 */
-
   /* 自身の中央寄せ */
   margin: 0px auto;
 

@@ -64,11 +64,11 @@
       <div class="column is-8">
         <div class="box" id="preview">
           <div style="overflow: auto;">
-            <div class="screenshot-area" v-bind:style="[linearGradient,previewWidth]">
+            <div class="screenshot-area" v-bind:style="[cssForScreenshotArea,cssForPreview]">
               <div id="append_area"><i v-bind:class="icon"></i><br><span v-text="title"><span></div>
             </div>
             <div style="position: absolute; opacity: 0.0; left:-2000px;">
-              <div id="screenshot-area" class="screenshot-area" v-bind:style="[linearGradient]">
+              <div id="screenshot-area" class="screenshot-area" v-bind:style="[cssForScreenshotArea]">
                 <div><i v-bind:class="icon"></i><br><span v-text="title"><span></div>
               </div>
             </div>
@@ -178,6 +178,27 @@
           <div class="field">
             <a class="button is-primary" v-on:click="capture" v-bind:class='{"is-loading":loading}'>ダウンロード</a>
           </div>
+          <hr>
+          <details>
+            <summary class="mb-4">詳細設定</summary>
+            <div class="field">
+              <label class="label">画像サイズ</label>
+              <div class="is-flex">
+                <div class="field">
+                  <p class="control">
+                    <input class="input" type="text" v-model="width">
+                  </p>
+                </div>
+                <div class="mx-3 is-size-5">x</div>
+                <div class="field">
+                  <p class="control">
+                    <input class="input" type="text" v-model="height">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </details>
         </div>
       </div>
     </div>
