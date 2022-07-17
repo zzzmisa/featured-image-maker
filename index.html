@@ -79,7 +79,7 @@
         <div class="box">
           <div class="field">
             <div class="buttons">
-              <a class="button is-light" v-for="item in items" v-on:click="showSample(item)" v-text="item.title"></a>
+              <a class="button is-light" v-for="item in sampleItems" v-on:click="showSample(item)" v-text="item.title"></a>
             </div>
           </div>
           <hr>
@@ -166,7 +166,7 @@
                   <template v-for="webgradient in webgradients">
                     <div class="column is-4"><a class="box"
                         v-on:click="selectGradient(webgradient); gradientsModalFlg=false"
-                        v-bind:style="linearGradientForRoop(webgradient)"><br><br><br><br><br></a></div>
+                        v-bind:style="cssForSelectGradientBox(webgradient)"><br><br><br><br><br></a></div>
                   </template>
                 </div>
               </section>

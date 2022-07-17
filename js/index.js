@@ -12,28 +12,7 @@ var app = new Vue({
     color: "to left top, #05FBFF, #1E00FF",
     width: 780,
     height: 520,
-    items: [
-      {
-        title: "サンプル1",
-        title_en: "Sample1",
-        icon: "far fa-gem",
-        color: "to right top, #F093FB, #F5576C",
-      },
-      {
-        title: "サンプル2",
-        title_en: "Sample2",
-        icon: "devicons devicons-terminal",
-        color: "to top, #5EE7DF, #B490CA",
-      },
-      {
-        title: "サンプル3",
-        title_en: "Sample3",
-        icon: "fas fa-cat",
-        color: "to left top, #20E2D7, #F9FEA5",
-      },
-    ],
     keyword: "",
-    webgradients: webgradients,
     loading: false,
     zoomPercentage: 100,
   },
@@ -44,6 +23,31 @@ var app = new Vue({
     }
   },
   computed: {
+    sampleItems: function () {
+      return [
+        {
+          title: "サンプル1",
+          title_en: "Sample1",
+          icon: "far fa-gem",
+          color: "to right top, #F093FB, #F5576C",
+        },
+        {
+          title: "サンプル2",
+          title_en: "Sample2",
+          icon: "devicons devicons-terminal",
+          color: "to top, #5EE7DF, #B490CA",
+        },
+        {
+          title: "サンプル3",
+          title_en: "Sample3",
+          icon: "fas fa-cat",
+          color: "to left top, #20E2D7, #F9FEA5",
+        },
+      ];
+    },
+    webgradients: function () {
+      return webgradients;
+    },
     cssForPreview: function () {
       return {
         zoom: this.zoomPercentage + "%",
@@ -104,7 +108,7 @@ var app = new Vue({
     selectGradient: function (selectedGradient) {
       this.color = selectedGradient;
     },
-    linearGradientForRoop: function (color) {
+    cssForSelectGradientBox: function (color) {
       return {
         background: "linear-gradient(" + color + ")",
       };
