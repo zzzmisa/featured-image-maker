@@ -166,7 +166,7 @@
                   <template v-for="webgradient in webgradients">
                     <div class="column is-4"><a class="box"
                         v-on:click="selectGradient(webgradient); gradientsModalFlg=false"
-                        v-bind:style="cssForSelectGradientBox(webgradient)"><br><br><br><br><br></a></div>
+                        v-bind:style='{ background: "linear-gradient(" + webgradient + ")" }'><br><br><br><br><br></a></div>
                   </template>
                 </div>
               </section>
@@ -176,7 +176,7 @@
           </div>
           <!-- ...gradientsModal -->
           <div class="field">
-            <a class="button is-primary" v-on:click="capture" v-bind:class='{"is-loading":loading}'>ダウンロード</a>
+            <a class="button is-primary" v-on:click="download" v-bind:class='{"is-downloading":isDownloading}'>ダウンロード</a>
           </div>
           <hr>
           <details>

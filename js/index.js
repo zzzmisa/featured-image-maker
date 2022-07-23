@@ -13,7 +13,7 @@ var app = new Vue({
     width: 780,
     height: 520,
     keyword: "",
-    loading: false,
+    isDownloading: false,
     zoomPercentage: 100,
   },
   mounted() {
@@ -63,36 +63,33 @@ var app = new Vue({
       };
     },
     searchedIcons: function () {
-      var options = {
+      const options = {
         threshold: 0.3,
         keys: ["name", "term"],
       };
-      var fuse = new Fuse(icons, options);
-      var result;
-      if (!this.keyword) {
-        result = icons;
-      } else {
-        result = fuse.search(this.keyword);
-      }
+      const fuse = new Fuse(icons, options);
+      let result;
+      if (!this.keyword) result = icons;
+      else result = fuse.search(this.keyword);
       return result;
     },
   },
   methods: {
-    capture: function () {
-      if (this.loading) return;
-      this.loading = true;
+    download: function () {
+      if (this.isDownloading) return;
+      this.isDownloading = true;
       let self = this;
 
       setTimeout(function () {
         html2canvas(document.querySelector("#screenshot-area"), {
           logging: false,
         }).then(function (canvas) {
-          var dataUrl = canvas.toDataURL("image/png");
-          var a = document.createElement("a");
+          const dataUrl = canvas.toDataURL("image/png");
+          const a = document.createElement("a");
           a.href = dataUrl;
           a.download = "output";
           a.click();
-          self.loading = false;
+          self.isDownloading = false;
         });
       }, 100);
     },
@@ -107,11 +104,6 @@ var app = new Vue({
     },
     selectGradient: function (selectedGradient) {
       this.color = selectedGradient;
-    },
-    cssForSelectGradientBox: function (color) {
-      return {
-        background: "linear-gradient(" + color + ")",
-      };
     },
   },
 });
