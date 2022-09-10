@@ -64,13 +64,15 @@
       <div class="column is-8">
         <div class="box" id="preview">
           <div style="overflow: auto;">
-            <div class="screenshot-area" v-bind:style="[cssForScreenshotArea,cssForPreview]">
-              <div id="append_area"><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
+            <div id="screenshot-area" class="screenshot-area" v-bind:style="[cssForScreenshotArea,cssForPreview]">
+              <div class="photo_area" v-bind:style="[cssForPhotoArea]"></div>
+              <div class="message_area"><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
             </div>
             <div style="position: absolute; opacity: 0.0; left:-2000px;">
-              <div id="screenshot-area" class="screenshot-area" v-bind:style="[cssForScreenshotArea]">
-                <div><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
-              </div>
+              <div  class="screenshot-area" v-bind:style="[cssForScreenshotArea]">
+                <div class="photo_area" v-bind:style="[cssForPhotoArea]"></div>
+                <div class="message_area"><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
+                </div>
             </div>
           </div>
         </div>
@@ -176,9 +178,30 @@
           </div>
           <!-- ...gradientsModal -->
           <div class="field">
-            <a class="button is-primary" v-on:click="download" v-bind:class='{"is-downloading":isDownloading}'>Download</a>
+            <label class="label">Background image</label>
+            <div class="file mb-2">
+              <label class="file-label">
+                <input class="file-input" type="file" @change="selectImage" >
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div class="preview-item">
+              <div v-if="imageData">
+                <span v-text="imageName"></span>
+                <button class="delete is-medium" @click="removeImage"></button>
+              </div>
+            </div>
           </div>
-          <hr>
+          <div class="field mt-5">
+            <a class="button is-primary is-fullwidth" v-on:click="download" v-bind:class='{"is-downloading":isDownloading}'>Download</a>
+          </div>
           <details>
             <summary class="mb-4">Advanced settings</summary>
             <div class="field">

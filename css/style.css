@@ -1,5 +1,7 @@
 ﻿.screenshot-area {
-  /* 自身の中央寄せ */
+  position: relative;
+
+  /* 自身の中央寄せ*/
   margin: 0px auto;
 
   /* コンテンツの中央寄せ */
@@ -36,4 +38,14 @@
 
 .screenshot-area .devicons {
   font-size: 90px;
+}
+
+.photo_area {
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.3;
+}
+
+.message_area {
+  position: absolute;
 }

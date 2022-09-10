@@ -1,7 +1,7 @@
 import icons from "./icons.js";
 import webgradients from "./webgradients.js";
 
-var app = new Vue({
+const app = new Vue({
   el: "#app",
   data: {
     iconsModalFlg: false,
@@ -15,6 +15,8 @@ var app = new Vue({
     keyword: "",
     isDownloading: false,
     zoomPercentage: 100,
+    imageData: "",
+    imageName: "",
   },
   mounted() {
     var w = document.getElementById("preview").clientWidth;
@@ -62,6 +64,13 @@ var app = new Vue({
         background: "linear-gradient(" + this.color + ")",
       };
     },
+    cssForPhotoArea: function () {
+      return {
+        width: this.width + "px",
+        height: this.height + "px",
+        backgroundImage: "url(" + this.imageData + ")",
+      };
+    },
     searchedIcons: function () {
       const options = {
         threshold: 0.3,
@@ -75,6 +84,21 @@ var app = new Vue({
     },
   },
   methods: {
+    selectImage: function (e) {
+      const files = e.target.files || e.dataTransfer.files;
+
+      const reader = new FileReader();
+      reader.onload = (ee) => {
+        this.imageData = ee.target.result;
+        e.target.value = "";
+      };
+      reader.readAsDataURL(files[0]);
+
+      this.imageName = files[0].name;
+    },
+    removeImage: function () {
+      this.imageData = "";
+    },
     download: function () {
       if (this.isDownloading) return;
       this.isDownloading = true;
