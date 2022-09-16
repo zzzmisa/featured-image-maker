@@ -1,17 +1,20 @@
 import icons from "./icons.js";
 import webgradients from "./webgradients.js";
+import fonts from "./fonts.js";
 
 const app = new Vue({
   el: "#app",
   data: {
     iconsModalFlg: false,
     gradientsModalFlg: false,
+    fontsModalFlg: false,
     title: "Eye Catch Maker",
     title_en: "Featured image maker",
     icon: "fa fa-eye",
     color: "to left top, #05FBFF, #1E00FF",
     width: 780,
     height: 520,
+    font: fonts[1],
     keyword: "",
     isDownloading: false,
     zoomPercentage: 100,
@@ -25,6 +28,12 @@ const app = new Vue({
     }
   },
   computed: {
+    fonts: function () {
+      return fonts;
+    },
+    webgradients: function () {
+      return webgradients;
+    },
     sampleItems: function () {
       return [
         {
@@ -47,8 +56,16 @@ const app = new Vue({
         },
       ];
     },
-    webgradients: function () {
-      return webgradients;
+    searchedIcons: function () {
+      const options = {
+        threshold: 0.3,
+        keys: ["name", "term"],
+      };
+      const fuse = new Fuse(icons, options);
+      let result;
+      if (!this.keyword) result = icons;
+      else result = fuse.search(this.keyword);
+      return result;
     },
     cssForPreview: function () {
       return {
@@ -62,6 +79,7 @@ const app = new Vue({
         width: this.width + "px",
         height: this.height + "px",
         background: "linear-gradient(" + this.color + ")",
+        fontFamily: this.font.fontFamily,
       };
     },
     cssForPhotoArea: function () {
@@ -70,17 +88,6 @@ const app = new Vue({
         height: this.height + "px",
         backgroundImage: "url(" + this.imageData + ")",
       };
-    },
-    searchedIcons: function () {
-      const options = {
-        threshold: 0.3,
-        keys: ["name", "term"],
-      };
-      const fuse = new Fuse(icons, options);
-      let result;
-      if (!this.keyword) result = icons;
-      else result = fuse.search(this.keyword);
-      return result;
     },
   },
   methods: {
@@ -128,6 +135,9 @@ const app = new Vue({
     },
     selectGradient: function (selectedGradient) {
       this.color = selectedGradient;
+    },
+    selectFont: function (selectedFont) {
+      this.font = selectedFont;
     },
   },
 });
