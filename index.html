@@ -8,8 +8,9 @@
   <!-- Bulma Version -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" rel="stylesheet">
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Lato&family=Oswald&family=Train+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -166,7 +167,7 @@
                   <template v-for="webgradient in webgradients">
                     <div class="column is-4"><a class="box"
                         v-on:click="selectGradient(webgradient); gradientsModalFlg=false"
-                        v-bind:style="linearGradientForRoop(webgradient)"><br><br><br><br><br></a></div>
+                        v-bind:style="{ background: 'linear-gradient(' + webgradient + ')' }"><br><br><br><br><br></a></div>
                   </template>
                 </div>
               </section>
@@ -184,20 +185,50 @@
             <div class="field">
               <label class="label">画像サイズ</label>
               <div class="is-flex">
-                <div class="field">
-                  <p class="control">
-                    <input class="input" type="text" v-model="width">
-                  </p>
-                </div>
+                <p class="control">
+                  <input class="input" type="text" v-model="width">
+                </p>
                 <div class="mx-3 is-size-5">x</div>
-                <div class="field">
-                  <p class="control">
-                    <input class="input" type="text" v-model="height">
-                  </p>
-                </div>
+                <p class="control">
+                  <input class="input" type="text" v-model="height">
+                </p>
               </div>
             </div>
-          </div>
+            <div class="field">
+              <label class="label">フォント</label>
+              <p class="control">
+                <div class="field has-addons">
+                  <p class="control is-expanded">
+                    <input class="input" type="text" v-bind:value="font.name" v-bind:style="{ fontFamily: font.fontFamily }" readonly>
+                  </p>
+                  <p class="control">
+                    <a class="button is-link" v-on:click='fontsModalFlg=true'>選択</a>
+                  </p>
+                </div>
+              </p>
+            </div>
+            <!-- fontsModal ... -->
+            <div class="modal" v-bind:class='{"is-active":fontsModalFlg}'>
+              <div class="modal-background"></div>
+              <div class="modal-card">
+                <header class="modal-card-head">
+                  <p class="modal-card-title">フォント選択</p>
+                  <button class="delete" aria-label="close" v-on:click='fontsModalFlg=false'></button>
+                </header>
+                <section class="modal-card-body">
+                  <div class="columns is-multiline has-text-centered">
+                    <template v-for="f in fonts">
+                      <div class="column is-4">
+                        <a class="box" v-text="f.name" v-bind:style="{ fontFamily: f.fontFamily }" v-on:click="selectFont(f); fontsModalFlg=false"
+                         ><br><br><br><br><br></a></div>
+                    </template>           
+                  </div>
+                </section>
+                <footer class="modal-card-foot">
+                </footer>
+              </div>
+            </div>
+            <!-- ...fontsModal -->
           </details>
         </div>
       </div>

@@ -1,17 +1,20 @@
 import icons from "./icons.js";
 import webgradients from "./webgradients.js";
+import fonts from "./fonts.js";
 
 var app = new Vue({
   el: "#app",
   data: {
     iconsModalFlg: false,
     gradientsModalFlg: false,
+    fontsModalFlg: false,
     title: "Eye Catch Maker",
     title_en: "Featured image maker",
     icon: "fa fa-eye",
     color: "to left top, #05FBFF, #1E00FF",
     width: 780,
     height: 520,
+    font: fonts[1],
     items: [
       {
         title: "サンプル1",
@@ -33,7 +36,6 @@ var app = new Vue({
       },
     ],
     keyword: "",
-    webgradients: webgradients,
     loading: false,
     zoomPercentage: 100,
   },
@@ -44,6 +46,12 @@ var app = new Vue({
     }
   },
   computed: {
+    fonts: function () {
+      return fonts;
+    },
+    webgradients: function () {
+      return webgradients;
+    },
     cssForPreview: function () {
       return {
         zoom: this.zoomPercentage + "%",
@@ -56,6 +64,7 @@ var app = new Vue({
         width: this.width + "px",
         height: this.height + "px",
         background: "linear-gradient(" + this.color + ")",
+        fontFamily: this.font.fontFamily,
       };
     },
     searchedIcons: function () {
@@ -104,10 +113,8 @@ var app = new Vue({
     selectGradient: function (selectedGradient) {
       this.color = selectedGradient;
     },
-    linearGradientForRoop: function (color) {
-      return {
-        background: "linear-gradient(" + color + ")",
-      };
+    selectFont: function (selectedFont) {
+      this.font = selectedFont;
     },
   },
 });
