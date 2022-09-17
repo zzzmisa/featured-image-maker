@@ -1,0 +1,13 @@
+{
+  "name": "featured-image-maker",
+  "version": "1.0.0",
+  "description": "Generator of simple featured images",
+  "scripts": {
+    "server": "browser-sync start --config bs-config.js"
+  },
+  "author": "zzzmisa",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.27.10"
+  }
+}
