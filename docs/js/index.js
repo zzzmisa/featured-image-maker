@@ -1,3 +1,5 @@
+/* eslint-disable */
+// TODO: eslintに対応したらdisable設定は削除
 import icons from "./icons.js";
 import webgradients from "./webgradients.js";
 import fonts from "./fonts.js";
@@ -22,7 +24,7 @@ const app = new Vue({
     imageName: "",
   },
   mounted() {
-    var w = document.getElementById("preview").clientWidth;
+    const w = document.getElementById("preview").clientWidth;
     if (w < this.width) {
       this.zoomPercentage = ((w - 40) / this.width) * 100;
     }
@@ -109,7 +111,7 @@ const app = new Vue({
     download: function () {
       if (this.isDownloading) return;
       this.isDownloading = true;
-      let self = this;
+      const self = this;
 
       setTimeout(function () {
         html2canvas(document.querySelector("#screenshot-area"), {
