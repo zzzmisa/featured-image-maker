@@ -24,14 +24,15 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Lato&family=Oswald&family=Train+One&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Lato&family=Oswald&family=Train+One&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet">
-  <link href='https://cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css" rel="stylesheet">
   <!-- My Style -->
-  <link href='../css/style.css' rel='stylesheet'>
+  <link href="../css/style.css" rel="stylesheet">
   <!-- Vue.js -->
   <!-- 開発版 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
@@ -62,14 +63,8 @@
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript
-    ><iframe
-      src="https://www.googletagmanager.com/ns.html?id=GTM-M5SJDZ36"
-      height="0"
-      width="0"
-      style="display: none; visibility: hidden"
-    ></iframe
-  ></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5SJDZ36" height="0" width="0"
+      style="display: none; visibility: hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <section class="section hero is-bold has-text-centered">
     <h1 class="title is-1 is-spaced" style="font-family: 'Oswald', sans-serif;"><a class="has-text-dark"
@@ -83,13 +78,13 @@
           <div style="overflow: auto;">
             <div id="screenshot-area" class="screenshot-area" v-bind:style="[cssForScreenshotArea,cssForPreview]">
               <div class="photo_area" v-bind:style="[cssForPhotoArea]"></div>
-              <div class="message_area"><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
+              <div class="message_area"><i v-bind:class="icon"></i><br><span v-text="title_en"></span></div>
             </div>
             <div style="position: absolute; opacity: 0.0; left:-2000px;">
-              <div  class="screenshot-area" v-bind:style="[cssForScreenshotArea]">
+              <div class="screenshot-area" v-bind:style="[cssForScreenshotArea]">
                 <div class="photo_area" v-bind:style="[cssForPhotoArea]"></div>
-                <div class="message_area"><i v-bind:class="icon"></i><br><span v-text="title_en"><span></div>
-                </div>
+                <div class="message_area"><i v-bind:class="icon"></i><br><span v-text="title_en"></span></div>
+              </div>
             </div>
           </div>
         </div>
@@ -98,30 +93,31 @@
         <div class="box">
           <div class="field">
             <div class="buttons">
-              <a class="button is-light" v-for="item in sampleItems" v-on:click="showSample(item)" v-text="item.title_en"></a>
+              <a class="button is-light" v-for="item in sampleItems" v-on:click="showSample(item)"
+                v-text="item.title_en"></a>
             </div>
           </div>
           <hr>
           <div class="field">
             <label class="label">Icon</label>
             <p class="control">
-              <div class="field has-addons">
-                <p class="control is-expanded">
-                  <input class="input" type="text" v-model="icon">
-                </p>
-                <p class="control">
-                  <a class="button is-link" v-on:click='iconsModalFlg=true'>Pick</a>
-                </p>
-              </div>
+            <div class="field has-addons">
+              <p class="control is-expanded">
+                <input class="input" type="text" v-model="icon">
+              </p>
+              <p class="control">
+                <a class="button is-link" v-on:click="iconsModalFlg=true">Pick</a>
+              </p>
+            </div>
             </p>
           </div>
           <!-- iconsModal ... -->
-          <div class="modal" v-bind:class='{"is-active":iconsModalFlg}'>
+          <div class="modal" v-bind:class="{'is-active' :iconsModalFlg}">
             <div class="modal-background"></div>
             <div class="modal-card">
               <header class="modal-card-head">
                 <p class="modal-card-title">Pick an Icon</p>
-                <button class="delete" aria-label="close" v-on:click='iconsModalFlg=false'></button>
+                <button class="delete" aria-label="close" v-on:click="iconsModalFlg=false"></button>
               </header>
               <section class="modal-card-body">
                 <div class="field">
@@ -134,19 +130,19 @@
                     <div class="column is-3" v-if="searchedIcon.styles.indexOf('solid') !== -1"><a class="box"
                         v-on:click="selectIcon('fas fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2"
                           v-bind:class="'fas fa-' + searchedIcon.name"></i><br><span
-                          v-text="searchedIcon.name"><span></a></div>
+                          v-text="searchedIcon.name"></span></a></div>
                     <div class="column is-3" v-if="searchedIcon.styles.indexOf('regular') !== -1"><a class="box"
                         v-on:click="selectIcon('far fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2"
                           v-bind:class="'far fa-' + searchedIcon.name"></i><br><span
-                          v-text="searchedIcon.name"><span></a></div>
+                          v-text="searchedIcon.name"></span></a></div>
                     <div class="column is-3" v-if="searchedIcon.styles.indexOf('light') !== -1"><a class="box"
                         v-on:click="selectIcon('fal fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2"
                           v-bind:class="'fal fa-' + searchedIcon.name"></i><br><span
-                          v-text="searchedIcon.name"><span></a></div>
+                          v-text="searchedIcon.name"></span></a></div>
                     <div class="column is-3" v-if="searchedIcon.styles.indexOf('brands') !== -1"><a class="box"
                         v-on:click="selectIcon('fab fa-' + searchedIcon.name); iconsModalFlg=false"><i class="is-size-2"
                           v-bind:class="'fab fa-' + searchedIcon.name"></i><br><span
-                          v-text="searchedIcon.name"><span></a></div>
+                          v-text="searchedIcon.name"></span></a></div>
                   </template>
                 </div>
               </section>
@@ -162,30 +158,31 @@
           <div class="field">
             <label class="label">Background gradation</label>
             <p class="control">
-              <div class="field has-addons">
-                <p class="control is-expanded">
-                  <input class="input" type="text" v-model="color">
-                </p>
-                <p class="control">
-                  <a class="button is-link" v-on:click='gradientsModalFlg=true'>Pick</a>
-                </p>
-              </div>
+            <div class="field has-addons">
+              <p class="control is-expanded">
+                <input class="input" type="text" v-model="color">
+              </p>
+              <p class="control">
+                <a class="button is-link" v-on:click="gradientsModalFlg=true">Pick</a>
+              </p>
+            </div>
             </p>
           </div>
           <!-- gradientsModal ... -->
-          <div class="modal" v-bind:class='{"is-active":gradientsModalFlg}'>
+          <div class="modal" v-bind:class="{'is-active':gradientsModalFlg}">
             <div class="modal-background"></div>
             <div class="modal-card">
               <header class="modal-card-head">
                 <p class="modal-card-title">Pick a Background gradation</p>
-                <button class="delete" aria-label="close" v-on:click='gradientsModalFlg=false'></button>
+                <button class="delete" aria-label="close" v-on:click="gradientsModalFlg=false"></button>
               </header>
               <section class="modal-card-body">
                 <div class="columns is-multiline has-text-centered">
                   <template v-for="webgradient in webgradients">
                     <div class="column is-4"><a class="box"
                         v-on:click="selectGradient(webgradient); gradientsModalFlg=false"
-                        v-bind:style="{ background: 'linear-gradient(' + webgradient + ')' }"><br><br><br><br><br></a></div>
+                        v-bind:style="{ background: 'linear-gradient(' + webgradient + ')' }"><br><br><br><br><br></a>
+                    </div>
                   </template>
                 </div>
               </section>
@@ -198,7 +195,7 @@
             <label class="label">Background image</label>
             <div class="file mb-2">
               <label class="file-label">
-                <input class="file-input" type="file" @change="selectImage" >
+                <input class="file-input" type="file" @change="selectImage">
                 <span class="file-cta">
                   <span class="file-icon">
                     <i class="fas fa-upload"></i>
@@ -217,7 +214,8 @@
             </div>
           </div>
           <div class="field mt-5">
-            <a class="button is-primary is-fullwidth" v-on:click="download" v-bind:class='{"is-downloading":isDownloading}'>Download</a>
+            <a class="button is-primary is-fullwidth" v-on:click="download"
+              v-bind:class="{'is-downloading':isDownloading}">Download</a>
           </div>
           <details>
             <summary class="mb-4">Advanced settings</summary>
@@ -236,31 +234,33 @@
             <div class="field">
               <label class="label">Font</label>
               <p class="control">
-                <div class="field has-addons">
-                  <p class="control is-expanded">
-                    <input class="input" type="text" v-bind:value="font.name" v-bind:style="{ fontFamily: font.fontFamily }" readonly>
-                  </p>
-                  <p class="control">
-                    <a class="button is-link" v-on:click='fontsModalFlg=true'>Pick</a>
-                  </p>
-                </div>
+              <div class="field has-addons">
+                <p class="control is-expanded">
+                  <input class="input" type="text" v-bind:value="font.name"
+                    v-bind:style="{ fontFamily: font.fontFamily }" readonly>
+                </p>
+                <p class="control">
+                  <a class="button is-link" v-on:click="fontsModalFlg=true">Pick</a>
+                </p>
+              </div>
               </p>
             </div>
             <!-- fontsModal ... -->
-            <div class="modal" v-bind:class='{"is-active":fontsModalFlg}'>
+            <div class="modal" v-bind:class="{'is-active':fontsModalFlg}">
               <div class="modal-background"></div>
               <div class="modal-card">
                 <header class="modal-card-head">
                   <p class="modal-card-title">Pick a font</p>
-                  <button class="delete" aria-label="close" v-on:click='fontsModalFlg=false'></button>
+                  <button class="delete" aria-label="close" v-on:click="fontsModalFlg=false"></button>
                 </header>
                 <section class="modal-card-body">
                   <div class="columns is-multiline has-text-centered">
                     <template v-for="f in fonts">
                       <div class="column is-4">
-                        <a class="box" v-text="f.name" v-bind:style="{ fontFamily: f.fontFamily }" v-on:click="selectFont(f); fontsModalFlg=false"
-                         ><br><br><br><br><br></a></div>
-                    </template>           
+                        <a class="box" v-text="f.name" v-bind:style="{ fontFamily: f.fontFamily }"
+                          v-on:click="selectFont(f); fontsModalFlg=false"><br><br><br><br><br></a>
+                      </div>
+                    </template>
                   </div>
                 </section>
                 <footer class="modal-card-foot">
@@ -323,21 +323,21 @@
     <div class="content">
       <p>Please Like and Share the following:</p>
       <p>
-        <aside class="share">
-          <a href="http://b.hatena.ne.jp/add?mode=confirm&amp;url=https://featured-image-maker.zzzmisa.com/en/&amp;title=Featured%20Image%20Maker"
-            title="Hatena Bookmark" class="button" target="_blank" rel="nofollow">B!</a>
-          <a href="http://twitter.com/intent/tweet?url=https://featured-image-maker.zzzmisa.com/en/&amp;text=Featured%20Image%20Maker&amp;tw_p=tweetbutton"
-            title="Share on Twitter" class="button" target="_blank" rel="nofollow"><i class="fa fa-twitter"
-              aria-hidden="true"></i></a>
-          <a href="http://www.facebook.com/sharer.php?u=https://featured-image-maker.zzzmisa.com/en/&amp;t=Featured%20Image%20Maker"
-            title="Share on Facebook" class="button" target="_blank" rel="nofollow"><i class="fa fa-facebook"
-              aria-hidden="true"></i></a>
-          <a href="http://getpocket.com/edit?url=https://featured-image-maker.zzzmisa.com/en/&amp;title=Featured%20Image%20Maker"
-            title="Save to Pocket" class="button" target="_blank" rel="nofollow"><i class="fa fa-get-pocket"
-              aria-hidden="true"></i></a>
-          <a href="http://line.me/R/msg/text/?Featured%20Image%20Maker https://featured-image-maker.zzzmisa.com/en/"
-            title="Share on Line" class="button" target="_blank" rel="nofollow">LINE</a>
-        </aside>
+      <aside class="share">
+        <a href="http://b.hatena.ne.jp/add?mode=confirm&amp;url=https://featured-image-maker.zzzmisa.com/en/&amp;title=Featured%20Image%20Maker"
+          title="Hatena Bookmark" class="button" target="_blank" rel="nofollow">B!</a>
+        <a href="http://twitter.com/intent/tweet?url=https://featured-image-maker.zzzmisa.com/en/&amp;text=Featured%20Image%20Maker&amp;tw_p=tweetbutton"
+          title="Share on Twitter" class="button" target="_blank" rel="nofollow"><i class="fa fa-twitter"
+            aria-hidden="true"></i></a>
+        <a href="http://www.facebook.com/sharer.php?u=https://featured-image-maker.zzzmisa.com/en/&amp;t=Featured%20Image%20Maker"
+          title="Share on Facebook" class="button" target="_blank" rel="nofollow"><i class="fa fa-facebook"
+            aria-hidden="true"></i></a>
+        <a href="http://getpocket.com/edit?url=https://featured-image-maker.zzzmisa.com/en/&amp;title=Featured%20Image%20Maker"
+          title="Save to Pocket" class="button" target="_blank" rel="nofollow"><i class="fa fa-get-pocket"
+            aria-hidden="true"></i></a>
+        <a href="http://line.me/R/msg/text/?Featured%20Image%20Maker https://featured-image-maker.zzzmisa.com/en/"
+          title="Share on Line" class="button" target="_blank" rel="nofollow">LINE</a>
+      </aside>
       </p>
     </div>
     <div class="content"><strong>Made by <a rel="license" href="https://blog.zzzmisa.com/">zzzmisa</a></strong> | <a
