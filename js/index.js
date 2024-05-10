@@ -1,25 +1,27 @@
+const { createApp } = Vue;
 import icons from "./icons.js";
 import webgradients from "./webgradients.js";
 import fonts from "./fonts.js";
 
-const app = new Vue({
-  el: "#app",
-  data: {
-    iconsModalFlg: false,
-    gradientsModalFlg: false,
-    fontsModalFlg: false,
-    title: "Eye Catch Maker",
-    title_en: "Featured image maker",
-    icon: "fa fa-eye",
-    color: "to left top, #05FBFF, #1E00FF",
-    width: 780,
-    height: 520,
-    font: fonts[1],
-    keyword: "",
-    isDownloading: false,
-    zoomPercentage: 100,
-    imageData: "",
-    imageName: "",
+const app = createApp({
+  data() {
+    return {
+      iconsModalFlg: false,
+      gradientsModalFlg: false,
+      fontsModalFlg: false,
+      title: "Eye Catch Maker",
+      title_en: "Featured image maker",
+      icon: "fa fa-eye",
+      color: "to left top, #05FBFF, #1E00FF",
+      width: 780,
+      height: 520,
+      font: fonts[1],
+      keyword: "",
+      isDownloading: false,
+      zoomPercentage: 100,
+      imageData: "",
+      imageName: "",
+    };
   },
   mounted() {
     var w = document.getElementById("preview").clientWidth;
@@ -141,3 +143,4 @@ const app = new Vue({
     },
   },
 });
+app.mount("#app");
