@@ -29,3 +29,13 @@ It is checked to work on the following browser's latest versions.
 
 - PC: Google Chrome, Safari (Checked on Mac OS X)
 - Mobile: iOS Safari
+
+## Quick start
+
+[Access here](http://featured-image-maker.zzzmisa.com/en/) and you can create featured images instantly.
+
+OR
+
+1. Clone this repository `git clone https://github.com/zzzmisa/featured-image-maker.git`
+2. Run `npx http-server` in the repository root
+3. Access [http://127.0.0.1:8080](http://127.0.0.1:8080)

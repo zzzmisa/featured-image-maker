@@ -31,3 +31,13 @@ WordPress のようなブログ用のアイキャッチ画像・ブログカー�
 
 - パソコン：Google Chrome、Safari（いずれも OSX 環境にて確認）
 - スマートフォン：iOS Safari
+
+## クイックスタート
+
+[ここにアクセス](http://featured-image-maker.zzzmisa.com/)すれば、すぐにアイキャッチ画像が作れます。
+
+もしくは
+
+1. このリポジトリをクローン `git clone https://github.com/zzzmisa/featured-image-maker.git`
+2. リポジトリのルートで`npx http-server`を実行
+3. [http://127.0.0.1:8080](http://127.0.0.1:8080)にアクセス
